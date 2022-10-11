@@ -1,0 +1,8 @@
+{
+  "name": "Codify-Bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/codify-community/Codify.git",
+  "author": "yxqsnz <yxqsnz@gmail.com>",
+  "license": "MIT"
+}
