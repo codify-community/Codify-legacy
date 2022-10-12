@@ -1,5 +1,6 @@
 import { Logger } from "tslog";
 import { SlashCommandBuilder, ChatInputCommandInteraction } from "discord.js";
+
 import Codify from "../Bot";
 
 export class Context {
@@ -11,6 +12,7 @@ export class Context {
     this.interaction = interaction;
   }
 }
+
 export default abstract class Command {
   protected logger = new Logger();
   public abstract data: SlashCommandBuilder;

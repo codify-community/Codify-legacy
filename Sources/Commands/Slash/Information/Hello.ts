@@ -1,4 +1,5 @@
 import { SlashCommandBuilder } from "discord.js";
+
 import Command, { Context } from "../../Command";
 
 export default class HelloCommand extends Command {

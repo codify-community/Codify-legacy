@@ -9,7 +9,7 @@
     "build": "tsc --build .",
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules Sources/Main.ts",
     "start": "node Target/Main.js",
-    "format": "prettier --write src/**",
+    "format": "prettier --write Sources/**",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix"
   },
