@@ -7,8 +7,8 @@ import {
   ActionRowBuilder,
   EmbedBuilder,
 } from "discord.js";
-import { GenerateInteractionID } from "../../../Utils/ID";
-import { CodeBlock } from "../../../Utils/Markdown";
+import { generateInteractionID } from "../../../Utils/ID";
+import { codeBlock } from "../../../Utils/Markdown";
 import Command, { Context } from "../../Command";
 
 export default class ChangelogCommand extends Command {
@@ -25,7 +25,7 @@ export default class ChangelogCommand extends Command {
 
   async execute({ codify, interaction }: Context) {
     const modal = new ModalBuilder()
-      .setCustomId(GenerateInteractionID(interaction))
+      .setCustomId(generateInteractionID(interaction))
       .setTitle("Criar nova lista de alteração");
 
     const changelogInput = new TextInputBuilder()
@@ -69,7 +69,7 @@ export default class ChangelogCommand extends Command {
       if (changelogChannel?.isTextBased()) {
         const embed = new EmbedBuilder()
           .setDescription(
-            `> ⚠️ Mudanças feitas em ${new Date().toTimeString()}\n${CodeBlock(
+            `> ⚠️ Mudanças feitas em ${new Date().toTimeString()}\n${codeBlock(
               "diff",
               changelog
             )}`
