@@ -2,7 +2,7 @@ import { Client, REST, Routes } from "discord.js";
 import { Logger } from "tslog";
 
 import Commands from "./Commands";
-import HandleCommand from "./Handlers/Command";
+import HandleCommand from "@Handlers/Command";
 
 export default class Codify {
   rest: REST;
