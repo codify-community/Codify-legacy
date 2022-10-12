@@ -9,8 +9,6 @@ declare global {
       DISCORD_GUILD_ID: string;
       /// Discord authorization token.
       DISCORD_AUTH_TOKEN: string;
-      /// Changelog channel
-      DISCORD_CHANNEL_CHANGELOG_ID: string;
     }
   }
 }
