@@ -1,8 +1,27 @@
 {
-  "name": "Codify-Bot",
+  "name": "codify-bot",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/codify-community/Codify.git",
   "author": "yxqsnz <yxqsnz@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build .",
+    "dev": "nodemon",
+    "start": "node Target/Main.js"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.25.0",
+    "nodemon": "^2.0.20",
+    "prettier-eslint": "^15.0.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@types/node": "^18.8.4",
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3",
+    "tslog": "^3.3.4"
+  }
 }
