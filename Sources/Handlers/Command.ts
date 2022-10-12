@@ -3,7 +3,7 @@ import { Logger } from "tslog";
 import Codify from "../Bot";
 import { Context } from "../Commands/Command";
 
-export default async function HandleCommand(
+export default async function handleCommand(
   codify: Codify,
   interaction: Interaction
 ) {
