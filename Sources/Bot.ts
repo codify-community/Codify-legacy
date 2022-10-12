@@ -1,8 +1,8 @@
 import { Client, REST, Routes } from "discord.js";
 import { Logger } from "tslog";
+
 import Commands from "./Commands";
 import setupHandlersFor from "./Handlers";
-import handleCommand from "./Handlers/Command";
 
 export default class Codify {
   rest: REST;

@@ -1,11 +1,11 @@
 import { Interaction } from "discord.js";
+import { Context } from "@Commands/Command";
 import { Logger } from "tslog";
-import Codify from "../Bot";
-import { Context } from "../Commands/Command";
+import Codify from "@Source/Bot";
 
 export default async function handleCommand(
   codify: Codify,
-  interaction: Interaction
+  interaction: Interaction,
 ) {
   const { commands } = codify;
   const logger = new Logger();
@@ -13,7 +13,7 @@ export default async function handleCommand(
   if (!interaction.isChatInputCommand()) return;
 
   const command = commands.find(
-    (command) => command.data.name == interaction.commandName
+    command => command.data.name == interaction.commandName,
   );
 
   if (command) {
