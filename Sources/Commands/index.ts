@@ -1,3 +1,3 @@
-import HelloCommand from "./Slash/Information/Hello";
+import HelloCommand from "@Commands/Slash/Information/Hello";
 
 export default [new HelloCommand()];

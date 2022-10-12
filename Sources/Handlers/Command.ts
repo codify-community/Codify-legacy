@@ -1,7 +1,7 @@
 import { Interaction } from "discord.js";
 
-import Codify from "../Bot";
-import { Context } from "../Commands/Command";
+import Codify from "@Source/Bot";
+import { Context } from "@Commands/Command";
 
 export default async function HandleCommand(
   codify: Codify,
