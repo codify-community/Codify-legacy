@@ -2,7 +2,7 @@ import { Client, REST, Routes } from "discord.js";
 import { Logger } from "tslog";
 
 import Commands from "./Commands";
-import HandleCommand from "@Handlers/Command";
+import setupHandlersFor from "./Handlers";
 
 export default class Codify {
   rest: REST;
@@ -24,22 +24,16 @@ export default class Codify {
 
   async prepareCommands() {
     this.logger.debug(
-      `Start refreshing ${Commands.length} application (/) commands.`,
+      `Start refreshing ${Commands.length} application (/) commands.`
     );
 
     await this.rest.put(
       Routes.applicationGuildCommands(this.id, this.guildID),
       {
-        body: this.commands.map(command => command.data.toJSON()),
-      },
+        body: this.commands.map((command) => command.data.toJSON()),
+      }
     );
-    this.logger.debug(`Refreshed ${Commands.length} application (/) commands.`);
-  }
-
-  setupHandlers() {
-    this.client.on("interactionCreate", interaction => {
-      HandleCommand(this, interaction);
-    });
+    this.logger.info(`Refreshed ${Commands.length} application (/) commands.`);
   }
 
   async start() {
@@ -47,9 +41,9 @@ export default class Codify {
     await this.prepareCommands();
 
     this.logger.debug("Loading handlers...");
-    this.setupHandlers();
+    setupHandlersFor(this);
 
-    this.logger.info("Logging into discord...");
+    this.logger.debug("Logging into discord...");
     await this.client.login(this.token);
   }
 }
