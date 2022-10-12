@@ -53,7 +53,7 @@ export default class ChangelogCommand extends Command {
 
     if (submit) {
       const changelog = submit.fields.getTextInputValue("changelog");
-      await submit.deferReply();
+      await submit.deferReply({ ephemeral: true });
       await submit.followUp(`:stopwatch: Enviando changelog...`);
       const changelogChannelId = interaction.options.getChannel("canal")?.id;
 
