@@ -17,11 +17,11 @@ export default class ChangelogCommand extends Command {
     .setName("criar-changelog")
     .setDescription("Cria uma nova changelog")
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
-    .addChannelOption((option) =>
+    .addChannelOption(option =>
       option
         .setName("canal")
         .setDescription("Canal para enviar a lista de alterações")
-        .setRequired(true)
+        .setRequired(true),
     ) as SlashCommandBuilder;
 
   async execute({ codify, interaction }: Context<ChatInputCommandInteraction>) {
@@ -45,9 +45,9 @@ export default class ChangelogCommand extends Command {
     const submit = await interaction
       .awaitModalSubmit({
         time: 10000000,
-        filter: (i) => i.user.id == interaction.user.id,
+        filter: i => i.user.id == interaction.user.id,
       })
-      .catch((err) => {
+      .catch(err => {
         this.logger.warn(`Failed to wait for a modal! error: ${err}`);
         return;
       });
@@ -64,7 +64,7 @@ export default class ChangelogCommand extends Command {
 
       const changelogChannel = await codify.client.channels.fetch(
         changelogChannelId,
-        { cache: true }
+        { cache: true },
       );
 
       if (changelogChannel?.isTextBased()) {
@@ -72,8 +72,8 @@ export default class ChangelogCommand extends Command {
           .setDescription(
             `> ⚠️ Mudanças feitas em ${new Date().toTimeString()}\n${codeBlock(
               "diff",
-              changelog
-            )}`
+              changelog,
+            )}`,
           )
           .setColor("Blurple")
           .setAuthor({
@@ -88,12 +88,12 @@ export default class ChangelogCommand extends Command {
             this.logger.silly(`Changelog sent to ${changelogChannelId}`);
             submit.editReply("✅ Lista de mudanças enviada.");
           })
-          .catch((err) => {
+          .catch(err => {
             this.logger.warn(
-              `Failed to send message to the channel ${changelogChannelId}. error ${err}`
+              `Failed to send message to the channel ${changelogChannelId}. error ${err}`,
             );
             submit.editReply(
-              "❌ Não tenho permissão de enviar mensagens nesse canal!"
+              "❌ Não tenho permissão de enviar mensagens nesse canal!",
             );
           });
       } else {
