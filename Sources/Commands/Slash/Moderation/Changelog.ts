@@ -6,6 +6,7 @@ import {
   TextInputStyle,
   ActionRowBuilder,
   EmbedBuilder,
+  ChatInputCommandInteraction,
 } from "discord.js";
 import { generateInteractionID } from "../../../Utils/ID";
 import { codeBlock } from "../../../Utils/Markdown";
@@ -23,7 +24,7 @@ export default class ChangelogCommand extends Command {
         .setRequired(true)
     ) as SlashCommandBuilder;
 
-  async execute({ codify, interaction }: Context) {
+  async execute({ codify, interaction }: Context<ChatInputCommandInteraction>) {
     const modal = new ModalBuilder()
       .setCustomId(generateInteractionID(interaction))
       .setTitle("Criar nova lista de alteração");

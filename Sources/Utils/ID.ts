@@ -1,5 +1,9 @@
-import { ChatInputCommandInteraction } from "discord.js";
+import { Interaction } from "discord.js";
 import { Logger } from "tslog";
+
+interface CommandName {
+  commandName: string;
+}
 
 let counter = 0;
 const logger = new Logger();
@@ -10,8 +14,8 @@ const logger = new Logger();
  * @param interaction Interaction to generate a ID
  * @returns {string}
  */
-export function generateInteractionID(
-  interaction: ChatInputCommandInteraction
+export function generateInteractionID<I extends CommandName>(
+  interaction: I
 ): string {
   if (counter >= 10000) {
     counter = 0;

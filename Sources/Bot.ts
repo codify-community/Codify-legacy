@@ -2,7 +2,6 @@ import { Client, REST, Routes } from "discord.js";
 import { Logger } from "tslog";
 import Commands from "./Commands";
 import setupHandlersFor from "./Handlers";
-import handleCommand from "./Handlers/Command";
 
 export default class Codify {
   rest: REST;
@@ -24,7 +23,7 @@ export default class Codify {
 
   async prepareCommands() {
     this.logger.debug(
-      `Start refreshing ${Commands.length} application (/) commands.`
+      `Start refreshing ${Commands.length} application (>; /) commands.`
     );
 
     await this.rest.put(
@@ -33,7 +32,9 @@ export default class Codify {
         body: this.commands.map((command) => command.data.toJSON()),
       }
     );
-    this.logger.info(`Refreshed ${Commands.length} application (/) commands.`);
+    this.logger.info(
+      `Refreshed ${Commands.length} application (>; /) commands.`
+    );
   }
 
   async start() {
