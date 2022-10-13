@@ -1,5 +1,6 @@
 import { Client, REST, Routes } from "discord.js";
 import { Logger } from "tslog";
+
 import Commands from "./Commands";
 import setupHandlersFor from "./Handlers";
 

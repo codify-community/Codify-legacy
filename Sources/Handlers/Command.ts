@@ -8,7 +8,7 @@ import Command, {
 
 export async function handleSlashCommands(
   codify: Codify,
-  interaction: Interaction
+  interaction: Interaction,
 ) {
   if (!interaction.isChatInputCommand()) {
     new Logger().debug(`${interaction.id} is not a (/) command.`);
@@ -35,7 +35,7 @@ async function doHandle(codify: Codify, interaction: CommandInteraction) {
   const logger = new Logger();
 
   const command = commands.find(
-    (command) => command.data.name == interaction.commandName
+    command => command.data.name == interaction.commandName,
   );
 
   if (command) {
