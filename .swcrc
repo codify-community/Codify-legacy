@@ -1,5 +1,11 @@
 {
     "jsc": {
+      "minify": {
+        "compress": {
+          "unused": true
+        },
+        "mangle": true
+      },
       "parser": {
         "syntax": "typescript",
         "decorators": true,
@@ -7,11 +13,14 @@
       },
       "transform": {
         "legacyDecorator": true,
-        "decoratorMetadata": true
+        "decoratorMetadata": true,
+        "optimizer": {
+          "simplify": true  
+        }
       },
-      "target": "es2018",
-      "keepClassNames": true,
-      "loose": true
+      "target": "es2021",
+      "keepClassNames": false,
+      "loose": false
     },
     "module": {
       "type": "commonjs",
