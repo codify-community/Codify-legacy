@@ -1,4 +1,3 @@
-import { Interaction } from "discord.js";
 import { Logger } from "tslog";
 
 interface CommandName {
