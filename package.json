@@ -1,12 +1,13 @@
 {
   "name": "codify-bot",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "Target/Main.js",
   "repository": "https://github.com/codify-community/Codify.git",
   "author": "yxqsnz <yxqsnz@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --build .",
+    "build": "swc Sources --out-dir Target --sync",
+    "build:check": "tsc --pretty --skipLibCheck --noEmit",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules Sources/Main.ts",
     "start": "node Target/Main.js",
     "format": "prettier --write Sources/**",
@@ -14,6 +15,8 @@
     "lint:fix": "eslint . --ext .ts --fix"
   },
   "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.3.7",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "eslint": "^8.25.0",

@@ -5,16 +5,13 @@
     "strict": true,
     "strictNullChecks": true,
     "allowJs": false,
-    "sourceMap": true,
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "incremental": true,
     "outDir": "Target",
     "baseUrl": "./",
-    "paths": {
-      "@Commands/*": ["Sources/Commands/*"],
-      "@Handlers/*": ["Sources/Handlers/*"],
-      "@Source/*": ["Sources/*"]
-    }
+    "pretty": true,
+    "noImplicitAny": true,
+    "inlineSourceMap": true,    
   }
 }
