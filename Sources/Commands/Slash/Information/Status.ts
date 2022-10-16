@@ -5,12 +5,12 @@ import {
   EmbedBuilder,
   SlashCommandBuilder,
 } from "discord.js";
-import Command, { Context, Interaction } from "Sources/Commands/Command";
+import Command, { Context, Interaction } from "@commands/Command";
 import { version as getOSVersion, arch } from "os";
 import { version as nodeVersion } from "process";
 import { version as discordJSVersion } from "discord.js";
-import { getCurrentProjectMetadata } from "Sources/Utils/Package";
-import { codeBlock } from "Sources/Utils/Markdown";
+import { getCurrentProjectMetadata } from "@codify/Utils/Package";
+import { codeBlock } from "@codify/Utils/Markdown";
 
 export default class Status extends Command {
   data = new SlashCommandBuilder()

@@ -9,9 +9,13 @@
     "moduleResolution": "Node",
     "incremental": true,
     "outDir": "Target",
-    "baseUrl": "./",
     "pretty": true,
     "noImplicitAny": true,
-    "inlineSourceMap": true,    
+    "inlineSourceMap": true,
+    "baseUrl": "./Sources",
+    "paths": {
+      "@codify/*": ["./*"],
+      "@commands/*": ["Commands/*"]
+    }
   }
 }

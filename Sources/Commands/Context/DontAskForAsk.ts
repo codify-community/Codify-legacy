@@ -54,7 +54,6 @@ Mas isso está jogando um erro, alguém sabe o porquê? Obrigado.
           ]),
       ],
     });
-
     await interaction.followUp({ ephemeral: true, content: "Enviado." });
   }
 }
