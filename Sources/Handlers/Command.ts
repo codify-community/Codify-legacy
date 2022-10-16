@@ -1,6 +1,6 @@
 import { Interaction } from "discord.js";
 import { Logger } from "tslog";
-import Codify from "../Bot";
+import Codify from "@codify/Bot";
 import {
   Context,
   Interaction as CommandInteraction,
@@ -45,8 +45,9 @@ async function doHandle(codify: Codify, interaction: CommandInteraction) {
     if (interaction.isContextMenuCommand()) {
       logger.silly(`Running (>) ${interaction.commandName} command.`);
     }
+
+    // SAFETY: its safe to do that because we know that only run correct command type.
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    // its safe to do that because we know that only run correct command type.
     command.execute(new Context(codify, interaction as any));
   } else {
     logger.silly(

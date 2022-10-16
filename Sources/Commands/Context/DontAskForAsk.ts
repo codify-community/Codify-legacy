@@ -4,7 +4,7 @@ import {
   MessageContextMenuCommandInteraction,
   EmbedBuilder,
 } from "discord.js";
-import Command, { Context } from "../Command";
+import Command, { Context } from "@commands/Command";
 
 export default class DontAskForAsk extends Command {
   data = new ContextMenuCommandBuilder()
