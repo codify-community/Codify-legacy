@@ -20,7 +20,7 @@ export async function handleSlashCommands(
 
 export async function handleContextMenuCommands(
   codify: Codify,
-  interaction: Interaction
+  interaction: Interaction,
 ) {
   if (!interaction.isContextMenuCommand()) {
     new Logger().debug(`${interaction.id} is not a (>) command.`);
@@ -50,7 +50,7 @@ async function doHandle(codify: Codify, interaction: CommandInteraction) {
     command.execute(new Context(codify, interaction as any));
   } else {
     logger.silly(
-      `Can't find application command ${interaction.commandName} command. Maybe your fork is out-of-sync?`
+      `Can't find application command ${interaction.commandName} command. Maybe your fork is out-of-sync?`,
     );
   }
 }

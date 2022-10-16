@@ -29,7 +29,7 @@ Exemplos:
 \t:x: **-** Errado: Olá alguém pode me ajudar com JavaScript (Next.js)?
 
 \t\t\t✅ **-** Certo (No forúm da sua categoria como por exemplo o <#1019636543486439585>):
-`.replaceAll("\t", " ")
+`.replaceAll("\t", " "),
           )
           .addFields([
             {
