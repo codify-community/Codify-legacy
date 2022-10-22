@@ -12,6 +12,7 @@ import { version as discordJSVersion } from "discord.js";
 import { getCurrentProjectMetadata } from "@codify/Utils/Package";
 import { codeBlock } from "@codify/Utils/Markdown";
 import dayjs from "@codify/Utils/Time";
+import pidusage from "pidusage";
 
 export default class Status extends Command {
   data = new SlashCommandBuilder()
@@ -20,6 +21,7 @@ export default class Status extends Command {
 
   async execute({ interaction }: Context<Interaction>): Promise<void> {
     await interaction.deferReply();
+
     const meta = await getCurrentProjectMetadata();
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
@@ -28,9 +30,11 @@ export default class Status extends Command {
         .setStyle(ButtonStyle.Link),
     );
 
-    const heapMb = process.memoryUsage().heapTotal / 1024 / 1024;
+    const heapMb = await pidusage(process.pid).then(
+      p => p.memory / 1024 / 1024,
+    );
+
     const memoryUsage = `${heapMb.toFixed(2)}M`;
-    console.log(process.uptime());
     const uptime = dayjs.duration(-process.uptime(), "seconds").humanize(true);
 
     const embed = new EmbedBuilder().setColor("Random").setDescription(
