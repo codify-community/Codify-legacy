@@ -6,7 +6,7 @@ import {
   SlashCommandBuilder,
 } from "discord.js";
 import Command, { Context, Interaction } from "@commands/Command";
-import { version as getOSVersion, arch } from "os";
+import { version as getOSVersion, arch, release, type } from "os";
 import { version as nodeVersion } from "process";
 import { version as discordJSVersion } from "discord.js";
 import { getCurrentProjectMetadata } from "@codify/Utils/Package";
@@ -28,24 +28,28 @@ export default class Status extends Command {
         .setStyle(ButtonStyle.Link),
     );
 
+    const heapMb = process.memoryUsage().heapTotal / 1024 / 1024;
+    const memoryUsage = `${heapMb.toFixed(2)}M`;
+
     const embed = new EmbedBuilder().setColor("Random").setDescription(
       codeBlock(
         "properties",
         `
-💻Version     : v${meta.version}
-💻Discord.JS  : v${discordJSVersion}
-💻Node.JS     : ${nodeVersion}
-💻System      : ${getOSVersion()}
-💻System.Arch : ${arch()}
-💻Uptime      : ${DateTime.now()
+💻Version       : v${meta.version}
+💻Node.JS       : ${nodeVersion}
+💻Discord.JS    : v${discordJSVersion}
+💻Memory.Usage  : ${memoryUsage}
+💻System.Type   : ${type()}
+💻System.Arch   : ${arch()}
+💻System.Release: ${release()}
+💻System.Version: ${getOSVersion()}
+💻Uptime        : ${DateTime.now()
           .diff(
             DateTime.fromSeconds(DateTime.now().toSeconds() - process.uptime()),
-            ["days", "seconds"],
+            ["years", "days", "minutes", "seconds"],
           )
           .toHuman({ maximumSignificantDigits: 4 })}
-💻Memory.Usage: ${`${(process.memoryUsage().heapTotal / 1024 / 1024).toFixed(
-          2,
-        )}M`}`,
+`,
       ),
     );
 
