@@ -11,6 +11,7 @@ import { version as nodeVersion } from "process";
 import { version as discordJSVersion } from "discord.js";
 import { getCurrentProjectMetadata } from "@codify/Utils/Package";
 import { codeBlock } from "@codify/Utils/Markdown";
+import { DateTime } from "luxon";
 
 export default class Status extends Command {
   data = new SlashCommandBuilder()
@@ -31,10 +32,17 @@ export default class Status extends Command {
       codeBlock(
         "properties",
         `
+💻Version     : v${meta.version}
 💻Discord.JS  : v${discordJSVersion}
 💻Node.JS     : ${nodeVersion}
 💻System      : ${getOSVersion()}
 💻System.Arch : ${arch()}
+💻Uptime      : ${DateTime.now()
+          .diff(
+            DateTime.fromSeconds(DateTime.now().toSeconds() - process.uptime()),
+            ["days", "seconds"],
+          )
+          .toHuman({ maximumSignificantDigits: 4 })}
 💻Memory.Usage: ${`${(process.memoryUsage().heapTotal / 1024 / 1024).toFixed(
           2,
         )}M`}`,
