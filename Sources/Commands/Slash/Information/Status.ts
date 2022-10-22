@@ -11,7 +11,7 @@ import { version as nodeVersion } from "process";
 import { version as discordJSVersion } from "discord.js";
 import { getCurrentProjectMetadata } from "@codify/Utils/Package";
 import { codeBlock } from "@codify/Utils/Markdown";
-import { DateTime } from "luxon";
+import dayjs from "@codify/Utils/Time";
 
 export default class Status extends Command {
   data = new SlashCommandBuilder()
@@ -30,6 +30,8 @@ export default class Status extends Command {
 
     const heapMb = process.memoryUsage().heapTotal / 1024 / 1024;
     const memoryUsage = `${heapMb.toFixed(2)}M`;
+    console.log(process.uptime());
+    const uptime = dayjs.duration(-process.uptime(), "seconds").humanize(true);
 
     const embed = new EmbedBuilder().setColor("Random").setDescription(
       codeBlock(
@@ -43,12 +45,7 @@ export default class Status extends Command {
 💻System.Arch   : ${arch()}
 💻System.Release: ${release()}
 💻System.Version: ${getOSVersion()}
-💻Uptime        : ${DateTime.now()
-          .diff(
-            DateTime.fromSeconds(DateTime.now().toSeconds() - process.uptime()),
-            ["years", "days", "minutes", "seconds"],
-          )
-          .toHuman({ maximumSignificantDigits: 4 })}
+💻Uptime        : ${uptime}
 `,
       ),
     );
