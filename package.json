@@ -6,7 +6,7 @@
   "author": "yxqsnz <yxqsnz@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "swc Sources --out-dir Target --sync",
+    "build": "tsc --build",
     "build:check": "tsc --pretty --skipLibCheck --noEmit",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules Sources/Main.ts",
     "start": "node Target/Main.js",
@@ -15,8 +15,8 @@
     "lint:fix": "eslint . --ext .ts --fix"
   },
   "devDependencies": {
-    "@swc/cli": "^0.1.57",
-    "@swc/core": "^1.3.9",
+    "@types/node": "^18.11.3",
+    "@types/pidusage": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.1",
     "eslint": "^8.25.0",
@@ -28,16 +28,12 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "@types/node": "^18.11.3",
-    "@types/pidusage": "^2.0.2",
-    "@types/timed-cache": "^2.0.0",
     "dayjs": "^1.11.6",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
     "lru-ttl-cache": "^2.4.4",
     "pidusage": "^3.0.1",
     "puppeteer": "^19.1.0",
-    "timed-cache": "^2.0.0",
     "tslog": "^3.3.4"
   }
 }

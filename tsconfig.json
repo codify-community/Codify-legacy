@@ -12,11 +12,6 @@
     "pretty": true,
     "noImplicitAny": true,
     "inlineSourceMap": true,
-    "baseUrl": "./Sources",
-    "paths": {
-      "@codify/*": ["./*"],
-      "@commands/*": ["Commands/*"],
-      "@jobs/*": ["Jobs/*"]
-    }
+    "baseUrl": "./Sources"
   }
 }

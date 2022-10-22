@@ -1,5 +1,5 @@
 import { Logger } from "tslog";
-import Codify from "@codify/Bot";
+import Codify from "../Bot";
 import { handleContextMenuCommands, handleSlashCommands } from "./Command";
 
 export default function setupHandlersFor(codify: Codify) {

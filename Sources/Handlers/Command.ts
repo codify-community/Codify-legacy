@@ -1,6 +1,6 @@
 import { Interaction } from "discord.js";
 import { Logger } from "tslog";
-import Codify from "@codify/Bot";
+import Codify from "../Bot";
 import {
   Context,
   Interaction as CommandInteraction,

@@ -1,5 +1,5 @@
-import googleSearch from "@jobs/Google";
-import Command, { Context, Interaction } from "@commands/Command";
+import googleSearch from "../../../Jobs/Google";
+import Command, { Context, Interaction } from "../../Command";
 import { SlashCommandBuilder } from "discord.js";
 
 export default class Google extends Command {
@@ -20,6 +20,6 @@ export default class Google extends Command {
     const query = interaction.options.get("query")?.value as string;
     const screenshot = await googleSearch(query);
 
-    await interaction.followUp({ files: [screenshot] });
+    await interaction.followUp({ files: [screenshot as Buffer] });
   }
 }

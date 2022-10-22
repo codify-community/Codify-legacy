@@ -5,13 +5,13 @@ import {
   EmbedBuilder,
   SlashCommandBuilder,
 } from "discord.js";
-import Command, { Context, Interaction } from "@commands/Command";
+import Command, { Context, Interaction } from "../../Command";
 import { version as getOSVersion, arch, release, type } from "os";
 import { version as nodeVersion } from "process";
 import { version as discordJSVersion } from "discord.js";
-import { getCurrentProjectMetadata } from "@codify/Utils/Package";
-import { codeBlock } from "@codify/Utils/Markdown";
-import dayjs from "@codify/Utils/Time";
+import { getCurrentProjectMetadata } from "../../../Utils/Package";
+import { codeBlock } from "../../../Utils/Markdown";
+import dayjs from "../../../Utils/Time";
 import pidusage from "pidusage";
 
 export default class Status extends Command {
