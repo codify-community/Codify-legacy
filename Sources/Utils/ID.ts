@@ -14,7 +14,7 @@ const logger = new Logger();
  * @returns {string}
  */
 export function generateInteractionID<I extends CommandName>(
-  interaction: I
+  interaction: I,
 ): string {
   if (counter >= 10000) {
     counter = 0;

@@ -4,7 +4,7 @@ import {
   MessageContextMenuCommandInteraction,
   EmbedBuilder,
 } from "discord.js";
-import Command, { Context } from "../Command";
+import Command, { Context } from "@commands/Command";
 
 export default class DontAskForAsk extends Command {
   data = new ContextMenuCommandBuilder()
@@ -29,7 +29,7 @@ Exemplos:
 \t:x: **-** Errado: Olá alguém pode me ajudar com JavaScript (Next.js)?
 
 \t\t\t✅ **-** Certo (No forúm da sua categoria como por exemplo o <#1019636543486439585>):
-`.replaceAll("\t", " ")
+`.replaceAll("\t", " "),
           )
           .addFields([
             {
@@ -54,7 +54,6 @@ Mas isso está jogando um erro, alguém sabe o porquê? Obrigado.
           ]),
       ],
     });
-
     await interaction.followUp({ ephemeral: true, content: "Enviado." });
   }
 }
