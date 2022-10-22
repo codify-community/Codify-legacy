@@ -11,6 +11,7 @@ export async function launchBrowser(): Promise<Browser> {
 
   return await launch({
     headless: true,
+    product: 'firefox',
     defaultViewport: {
       width: 1366,
       height: 728,

@@ -22,7 +22,6 @@ export default async function googleSearch(query: string) {
       logger.debug(`Going to the search....`);
       await page.goto(
         `https://www.google.com/search?client=firefox-b-d&q=${googleQuery}`,
-        { waitUntil: "networkidle2" },
       );
 
       logger.debug(`Enabling safe search`);
