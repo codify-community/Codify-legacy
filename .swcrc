@@ -5,7 +5,8 @@
     "baseUrl": "Sources/",
     "paths": {
       "@codify/*": ["./*"],
-      "@commands/*": ["Commands/*"]
+      "@commands/*": ["Commands/*"],
+      "@jobs/*": ["Jobs/*"]
     },
     "minify": {
       "compress": {

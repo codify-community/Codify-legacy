@@ -3,6 +3,7 @@ import { Logger } from "tslog";
 
 import Commands from "./Commands";
 import setupHandlersFor from "./Handlers";
+import { setup as setupJobs } from "./Jobs";
 
 export default class Codify {
   rest: REST;
@@ -47,5 +48,8 @@ export default class Codify {
 
     this.logger.debug("Logging into discord...");
     await this.client.login(this.token);
+
+    this.logger.debug("Setupping jobs...");
+    await setupJobs();
   }
 }

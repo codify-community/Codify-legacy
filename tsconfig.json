@@ -15,7 +15,8 @@
     "baseUrl": "./Sources",
     "paths": {
       "@codify/*": ["./*"],
-      "@commands/*": ["Commands/*"]
+      "@commands/*": ["Commands/*"],
+      "@jobs/*": ["Jobs/*"]
     }
   }
 }

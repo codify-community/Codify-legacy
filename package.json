@@ -1,6 +1,6 @@
 {
   "name": "codify-bot",
-  "version": "0.1.5-alpha",
+  "version": "0.2.0-alpha",
   "main": "Target/Main.js",
   "repository": "https://github.com/codify-community/Codify.git",
   "author": "yxqsnz <yxqsnz@gmail.com>",
@@ -33,6 +33,7 @@
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
     "luxon": "^3.0.4",
+    "puppeteer": "^19.1.0",
     "tslog": "^3.3.4"
   }
 }
