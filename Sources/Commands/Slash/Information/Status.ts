@@ -20,7 +20,7 @@ export default class Status extends Command {
     .setDescription("Veja minhas informações!");
 
   async execute({ interaction }: Context<Interaction>): Promise<void> {
-    await interaction.deferReply();
+    await interaction.deferReply({ ephemeral: true });
 
     const meta = await getCurrentProjectMetadata();
     const row = new ActionRowBuilder().addComponents(
