@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "sourceRoot": "src",
+    "rootDir": "src",
+    "outDir": "out",
+    "strict": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "incremental": true,
+    "inlineSourceMap": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node"
+  }
+}
