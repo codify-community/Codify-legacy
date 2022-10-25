@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
+    "target": "ES2021",
+    "module": "CommonJS",
     "sourceRoot": "src",
     "rootDir": "src",
     "outDir": "out",
     "strict": true,
+    "strictNullChecks": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "incremental": true,
