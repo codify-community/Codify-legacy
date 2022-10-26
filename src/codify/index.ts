@@ -5,6 +5,7 @@ import onInteractionCreate from "./events/interactionCreate";
 import commandList from "./commandList";
 import { Command } from "../commands";
 import { Logger } from "tslog";
+import onRateLimit from "./events/rateLimit";
 
 export default class Codify {
   public config: Config;
@@ -24,6 +25,7 @@ export default class Codify {
   setupEvents() {
     this.client.on("ready", onReady);
     this.client.on("interactionCreate", (it) => onInteractionCreate(this, it));
+    this.client.rest.on("rateLimited", onRateLimit);
   }
 
   async registerCommands() {
