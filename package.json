@@ -32,7 +32,7 @@
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
     "lru-ttl-cache": "^2.4.4",
-    "pidusage": "^3.0.1",
+    "pidusage": "^3.0.2",
     "puppeteer": "^19.1.0",
     "tslog": "^3.3.4"
   }
