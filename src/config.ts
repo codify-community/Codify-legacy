@@ -1,6 +1,7 @@
 export default class Config {
   public token: string;
-  public appId: number;
+  public appId: string;
+  public targetGuildId: string;
 
   constructor() {
     if (process.env.DISCORD_AUTH_TOKEN) {
@@ -10,9 +11,15 @@ export default class Config {
     }
 
     if (process.env.DISCORD_APP_ID) {
-      this.appId = Number(process.env.DISCORD_APP_ID) || 0;
+      this.appId = process.env.DISCORD_APP_ID;
     } else {
       throw new Error(`Missing env var: DISCORD_APP_ID`);
+    }
+
+    if (process.env.DISCORD_GUILD_ID) {
+      this.targetGuildId = process.env.DISCORD_GUILD_ID;
+    } else {
+      throw new Error(`Missing env var: DISCORD_GUILD_ID`);
     }
   }
 }

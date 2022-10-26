@@ -1,9 +1,9 @@
 import { config } from "dotenv";
-import Bot from "./bot";
+import Codify from "./codify";
 import Config from "./config";
 
 config();
 
-const bot = new Bot(new Config());
+const bot = new Codify(new Config());
 
 bot.start();
