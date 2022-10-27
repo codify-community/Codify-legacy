@@ -15,7 +15,7 @@
     "lint:fix": "eslint . --ext .ts --fix"
   },
   "devDependencies": {
-    "@types/node": "^18.11.4",
+    "@types/node": "^18.11.7",
     "@types/pidusage": "^2.0.2",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.1",
