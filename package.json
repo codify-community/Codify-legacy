@@ -33,7 +33,7 @@
     "dotenv": "^16.0.3",
     "lru-ttl-cache": "^2.4.4",
     "pidusage": "^3.0.1",
-    "puppeteer": "^19.2.0",
+    "puppeteer": "^19.2.2",
     "tslog": "^3.3.4"
   }
 }
