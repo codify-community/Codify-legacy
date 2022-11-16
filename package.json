@@ -34,6 +34,6 @@
     "lru-ttl-cache": "^2.4.4",
     "pidusage": "^3.0.1",
     "puppeteer": "^19.2.0",
-    "tslog": "^3.3.4"
+    "tslog": "^4.0.2"
   }
 }
